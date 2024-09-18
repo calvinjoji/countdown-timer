@@ -32,6 +32,10 @@
     <img id="logo" src="https://ethglobal.b-cdn.net/events/singapore2024/logo/default.png" alt="ETHGlobal Singapore Logo">
 
     <script>
+        function padZero(num) {
+            return num.toString().padStart(2, '0');
+        }
+
         function updateCountdown() {
             const countDownDate = new Date("Sep 22, 2024 09:00:00").getTime();
             const now = new Date().getTime();
@@ -47,7 +51,7 @@
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 document.getElementById("countdown").innerHTML = 
-                    days + "D ; " + hours + "H ; " + minutes + "M ; " + seconds + "S";
+                    `${days}D : ${padZero(hours)}H : ${padZero(minutes)}M : ${padZero(seconds)}S`;
             }
         }
 
