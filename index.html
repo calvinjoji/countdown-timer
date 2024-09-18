@@ -45,17 +45,17 @@
                 clearInterval(x);
                 document.getElementById("countdown").innerHTML = "TIMES UP";
             } else {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const hours = Math.floor(distance / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 document.getElementById("countdown").innerHTML = 
-                    `${days}D : ${padZero(hours)}H : ${padZero(minutes)}M`;
+                    `${padZero(hours)}H : ${padZero(minutes)}M : ${padZero(seconds)}S`;
             }
         }
 
         updateCountdown();
-        const x = setInterval(updateCountdown, 60000); // Update every minute
+        const x = setInterval(updateCountdown, 1000); // Update every second
     </script>
 </body>
 </html>
